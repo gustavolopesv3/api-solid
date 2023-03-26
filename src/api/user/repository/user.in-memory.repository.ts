@@ -1,9 +1,14 @@
+import { UserType } from '../types/user.types'
 import { UserDTO, UserCreateDTO } from '../user.dto'
 import { UsersRepository } from './user.repository'
 
 export class InMemoryUsersRepository implements UsersRepository {
-  async findAll(query: any): Promise<UserDTO[] | null> {
-    return [{ email: 'a', id: 'qa' }]
+  private items: UserType[] = []
+
+  async findAll(query: any): Promise<UserType[] | []> {
+    console.log('CALLED')
+    const data = this.items
+    return data
   }
 
   async create(data: UserCreateDTO): Promise<UserDTO> {
