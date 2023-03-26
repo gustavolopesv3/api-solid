@@ -1,6 +1,6 @@
 import fastify from 'fastify'
-import { usersRoutes } from './api/user/user.routes'
+import { UserRoutes } from './api/user/user.routes'
 
 export const app = fastify()
 
-app.register(usersRoutes)
+app.register(async (args) => new UserRoutes(args))
